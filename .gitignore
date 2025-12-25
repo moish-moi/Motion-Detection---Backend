@@ -1,0 +1,33 @@
+# --- Project Specific ---
+# Ignore the data folders containing thousands of images
+frames/
+# If you have specific video files
+*.mp4
+*.avi
+
+# --- Python ---
+# Ignore compiled python files
+__pycache__/
+*.py[cod]
+*$py.class
+# Virtual environments
+venv/
+.venv/
+env/
+
+# --- IDEs ---
+# VS Code settings
+.vscode/
+# PyCharm settings
+.idea/
+
+# --- Operating System ---
+# Windows thumbnails
+Thumbs.db
+# macOS folder settings
+.DS_Store
+
+# --- Output/Logs ---
+# If you save the final masks or heatmaps as files
+output/
+*.log

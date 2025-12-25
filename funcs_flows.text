@@ -1,0 +1,49 @@
+[Camera Folder]
+      |
+      v
+[load_frames_from_folder]
+      |
+      v
+[sort_frames_by_time]
+      |
+      v
+[detect_motion_between_frames]
+      |
+      v
+[extract_contours_and_boxes]
+      |
+      v
+[group_boxes_into_events]
+      |
+      v
+================= POINT OF CONNECTION =================
+      |
+      v
+[preprocess_events]
+      |
+      v
+[build_heatmap]
+      |
+      v
+[normalize_heatmap]
+      |
+      v
+[heatmap_to_mask]  --->  Heat Mask
+      |
+      v
+---------------- Online / New Event ----------------
+      |
+      v
+[preprocess_event]
+      |
+      v
+[compute_event_overlap_with_mask]
+      |
+      v
+(optional) [time_gate_score]
+      |
+      v
+[decide_ignore_or_forward]
+      |
+      v
+(OUTPUT) IGNORE / FORWARD
