@@ -14,6 +14,9 @@ def build_heatmap(events, image_shape):
     
     for event in events:
         for (x, y, w, h) in event["boxes"]:
+            area = w * h
+            if area <= 0: continue
+            weight = 100.0 / np.sqrt(area) # משקל לפי גודל האזור
             # הוספת "חום" לאזור הקופסה במטריצה
             # אנחנו מוסיפים 1 לכל פיקסל בתוך המלבן
             heatmap[y:y+h, x:x+w] += 1

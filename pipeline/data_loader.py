@@ -1,31 +1,21 @@
 # pipeline/data_loader.py
 
 from pathlib import Path
-from datetime import datetime
 
 def load_image_sequences(root_dir: str):
     root_path = Path(root_dir)
     sequence = []
 
     if not root_path.exists():
-        print(f"❌ שגיאה: התיקייה {root_path.absolute()} לא נמצאה")
+        print(f"❌ Error: Folder {root_path.absolute()} not found")
         return []
 
-    time_folders = sorted([f for f in root_path.iterdir() if f.is_dir()])
+    # אוסף את כל קבצי ה-jpg מכל התיקיות הפנימיות
+    image_files = sorted(list(root_path.glob("**/*.jpg")))
     
-    for folder in time_folders:
-        try:
-            timestamp = datetime.strptime(folder.name, "%Y%m%d_%H%M%S")
-        except ValueError:
-            continue
-
-        image_files = sorted(list(folder.glob("*.jpg")))
-        
-        for img_path in image_files:
-            # שים לב: הורדנו את cv2.imread. אנחנו שומרים רק את הנתיב!
-            sequence.append({
-                "path": str(img_path),
-                "timestamp": timestamp
-            })
+    for img_path in image_files:
+        sequence.append({
+            "path": str(img_path)
+        })
 
     return sequence
