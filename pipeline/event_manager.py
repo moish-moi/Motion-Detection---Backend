@@ -46,7 +46,8 @@ def extract_all_events(sequences):
         if boxes:
             all_events.append({
                 "timestamp": timestamp,
-                "boxes": boxes
+                "boxes": boxes,
+                "source_path": img_path
             })
             
         prev_frame = curr_frame

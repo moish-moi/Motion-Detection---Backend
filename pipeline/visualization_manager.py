@@ -29,16 +29,15 @@ def run_judges_presentation(first_frame, heatmap_overlay, heat_mask, mask_overla
 
     # שלב 1: מקור
     cv2.imshow(window_name, draw_text(first_frame, "Step 1: Input Scene"))
-    cv2.waitKey(5500)
+    cv2.waitKey(50500)
 
     # שלב 2: מפת חום
     cv2.imshow(window_name, draw_text(heatmap_overlay, "Step 2: Learning Routine Hotspots"))
-    cv2.waitKey(5500)
-
+    cv2.waitKey(50500)
     # שלב 3: מסכה בינארית
     mask_3d = cv2.cvtColor(heat_mask, cv2.COLOR_GRAY2BGR)
     cv2.imshow(window_name, draw_text(mask_3d, "Step 3: Binary Decision Mask"))
-    cv2.waitKey(5500)
+    cv2.waitKey(50500)
 
     # שלב 4: תוצאה משולבת
     cv2.imshow(window_name, draw_text(mask_overlay, "Step 4: Routine Filter Active"))

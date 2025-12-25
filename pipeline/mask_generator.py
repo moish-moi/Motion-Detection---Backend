@@ -3,7 +3,7 @@
 import cv2
 import numpy as np
 
-def heatmap_to_mask(heatmap, threshold_factor=0.7):
+def heatmap_to_mask(heatmap, threshold_factor=0.1):
     """
     הופכת מפת חום למסכה בינארית (Mask).
     :param heatmap: מטריצת החום המצטברת
